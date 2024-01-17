@@ -68,7 +68,7 @@ const jsonData = [
 
   ];
 
-app.get('/api/data', (req, res)=>{
+app.get('/api/data/:id', (req, res)=>{
    res.json(jsonData)
 })
 
