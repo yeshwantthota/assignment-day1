@@ -1,12 +1,13 @@
 let dataObjects = [];
-
-async function fetchData() {
-  const response = await fetch("http://localhost:3000/api/data");
+ const url = "http://localhost:3000/api/data/"
+async function fetchData(page) {
+  const response = await fetch(url + page);
   dataObjects = await response.json();
   dataObjects.forEach(createCard);
 }
 
 const cardContainer = document.getElementById("cards-container");
+
 function createCard(dataObject) {
 
   const card = document.createElement("div");
@@ -33,4 +34,12 @@ function createCard(dataObject) {
   cardContainer.appendChild(card);
 }
 
-fetchData();
+let dataObjects2 = [];
+// async function fetchData2(){
+//   const response = await fetch(url + "2")
+//   const jsonData = await response.json();
+//   console.log(jsonData)
+//   jsonData.forEach(createCard)
+// }
+fetchData(1);
+fetchData(2);
